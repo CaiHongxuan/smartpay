@@ -6,11 +6,11 @@
  * Time: 14:15
  */
 
-class WxPayTest
-{
-    public function payTest()
-    {
-        return 'test';
-    }
+require __DIR__ . DIRECTORY_SEPARATOR . '../vendor/autoload.php';
 
-}
+//new \Hongxuan\Smartpay\PaymentServiceProvider();
+//$payment = new \Hongxuan\Smart\PaymentManager();
+
+//$payment->pay();
+var_dump($this->app->make('payment'));
+dd($this->app->payment);

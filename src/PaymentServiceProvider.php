@@ -6,7 +6,7 @@
  * Time: 12:33
  */
 
-namespace Hongxuan\Smart;
+namespace Hongxuan\Smartpay;
 
 
 use Illuminate\Support\ServiceProvider;
@@ -14,13 +14,20 @@ use Illuminate\Support\ServiceProvider;
 class PaymentServiceProvider extends ServiceProvider
 {
     /**
+     * 服务提供者加是否延迟加载.
+     *
+     * @var bool
+     */
+    protected $defer = true; // 延迟加载服务
+
+    /**
      * Register the pay service provider.
      */
     public function register()
     {
-        $this->registerPaymentManager();
+        $this->mergeConfigFrom($this->configPath(), 'payment');
 
-        $this->registerPaymentDriver();
+        $this->registerPaymentManager();
     }
 
     /**
@@ -34,15 +41,22 @@ class PaymentServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the payment driver instance.
+     * config path
+     * @return string
      */
-    protected function registerPaymentDriver()
+    protected function configPath()
     {
-        $this->app->singleton('payment.store', function ($app) {
-            $manager = $app['payment'];
+        return __DIR__ . '/../config/payment.php';
+    }
 
-            return $manager->driver();
-        });
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['payment'];
     }
 
 }

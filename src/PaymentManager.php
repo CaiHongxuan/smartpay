@@ -6,9 +6,10 @@
  * Time: 14:41
  */
 
-namespace Hongxuan\Smart;
+namespace Hongxuan\Smartpay;
 
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Manager;
 
 class PaymentManager extends Manager
@@ -47,31 +48,31 @@ class PaymentManager extends Manager
     /**
      * Create an instance of the alipay payment driver.
      *
-     * @return Payment
+     * @return mixed
      */
     protected function createAlipayDriver()
     {
-        return $this->buildPayment(new AlipayHandler());
+        return $this->buildPayment(AlipayHandler::class, Arr::get($this->getPaymentConfig(), 'drivers.alipay'));
     }
 
     /**
      * Create an instance of the weixin payment driver.
      *
-     * @return Payment
+     * @return mixed
      */
     protected function createWeixinDriver()
     {
-        return $this->buildPayment(new WeXinHandler());
+        return $this->buildPayment(WeXinHandler::class, Arr::get($this->getPaymentConfig(), 'drivers.weixin'));
     }
 
     /**
      * Build the payment instance.
      *
      * @param $handler
-     * @return Payment
+     * @return mixed
      */
-    public function buildPayment($handler)
+    public function buildPayment($handler, $config)
     {
-        return new Payment($handler);
+        return new $handler($config);
     }
 }

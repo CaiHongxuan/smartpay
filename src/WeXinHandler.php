@@ -6,17 +6,32 @@
  * Time: 14:42
  */
 
-namespace Hongxuan\Smart;
+namespace Hongxuan\Smartpay;
 
 
-class WeXinHandler implements PaymentHandlerInterface
+use InvalidArgumentException;
+
+class WeXinHandler extends PaymentHandlerAbstract
 {
+    /**
+     * 获取配置信息
+     * @param $config
+     * @return mixed
+     */
+    protected function getConfig($config)
+    {
+        if(!isset($config['app_id']) || !isset($config['app_key'])){
+            throw new InvalidArgumentException("Configure app_id or app_key not found.");
+        }
+
+        return $config;
+    }
 
     /**
      * 手机、电脑网站支付
      * @return mixed
      */
-    public function pay()
+    function pay()
     {
         // TODO: Implement pay() method.
     }
@@ -26,7 +41,7 @@ class WeXinHandler implements PaymentHandlerInterface
      *
      * @return mixed
      */
-    public function tradeQuery()
+    function tradeQuery()
     {
         // TODO: Implement tradeQuery() method.
     }
@@ -36,7 +51,7 @@ class WeXinHandler implements PaymentHandlerInterface
      *
      * @return mixed
      */
-    public function refund()
+    function refund()
     {
         // TODO: Implement refund() method.
     }
@@ -46,7 +61,7 @@ class WeXinHandler implements PaymentHandlerInterface
      *
      * @return mixed
      */
-    public function refundQuery()
+    function refundQuery()
     {
         // TODO: Implement refundQuery() method.
     }
@@ -56,7 +71,7 @@ class WeXinHandler implements PaymentHandlerInterface
      *
      * @return mixed
      */
-    public function download()
+    function download()
     {
         // TODO: Implement download() method.
     }

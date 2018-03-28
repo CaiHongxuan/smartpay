@@ -11,9 +11,9 @@
 header("Content-type: text/html; charset=utf-8");
 
 
-require_once dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'service/AlipayTradeService.php';
-require_once dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'buildermodel/AlipayTradeWapPayContentBuilder.php';
-require dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'./../config.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'service/AlipayTradeService.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'buildermodel/AlipayTradeWapPayContentBuilder.php';
+require dirname(__FILE__) . DIRECTORY_SEPARATOR . './../config.php';
 if (!empty($_POST['WIDout_trade_no'])&& trim($_POST['WIDout_trade_no'])!=""){
     //商户订单号，商户网站订单系统中唯一订单号，必填
     $out_trade_no = $_POST['WIDout_trade_no'];

@@ -6,9 +6,9 @@
 </head>
 <?php
 
-require_once dirname(dirname(__FILE__)).'/config.php';
-require_once dirname(__FILE__).'/service/AlipayTradeService.php';
-require_once dirname(__FILE__).'/buildermodel/AlipayTradeRefundContentBuilder.php';
+require_once dirname(dirname(__FILE__)) . '/config.php';
+require_once dirname(__FILE__) . '/service/AlipayTradeService.php';
+require_once dirname(__FILE__) . '/buildermodel/AlipayTradeRefundContentBuilder.php';
 
     //商户订单号，商户网站订单系统中唯一订单号
     $out_trade_no = trim($_POST['WIDTRout_trade_no']);

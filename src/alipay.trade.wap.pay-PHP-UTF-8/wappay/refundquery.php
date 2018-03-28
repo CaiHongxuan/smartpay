@@ -11,9 +11,9 @@
 header("Content-type: text/html; charset=utf-8");
 
 
-require_once dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'service/AlipayTradeService.php';
-require_once dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'buildermodel/AlipayTradeFastpayRefundQueryContentBuilder.php';
-require dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'./../config.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'service/AlipayTradeService.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'buildermodel/AlipayTradeFastpayRefundQueryContentBuilder.php';
+require dirname(__FILE__) . DIRECTORY_SEPARATOR . './../config.php';
 if (!empty($_POST['WIDout_trade_no']) || !empty($_POST['WIDtrade_no'])&&!empty($_POST['WIDout_request_no'])){
 
     //商户订单号和支付宝交易号不能同时为空。 trade_no、  out_trade_no如果同时存在优先取trade_no

@@ -11,9 +11,9 @@
 header("Content-type: text/html; charset=utf-8");
 
 
-require_once dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'service/AlipayTradeService.php';
-require_once dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'buildermodel/AlipayDataDataserviceBillDownloadurlQueryContentBuilder.php';
-require dirname ( __FILE__ ).DIRECTORY_SEPARATOR.'./../config.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'service/AlipayTradeService.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'buildermodel/AlipayDataDataserviceBillDownloadurlQueryContentBuilder.php';
+require dirname(__FILE__) . DIRECTORY_SEPARATOR . './../config.php';
 if (!empty($_POST['WIDbill_type']) && !empty($_POST['WIDbill_date'])){
 	//账单类型，商户通过接口或商户经开放平台授权后其所属服务商通过接口可以获取以下账单类型：trade、signcustomer；
 	//trade指商户基于支付宝交易收单的业务账单；signcustomer是指基于商户支付宝余额收入及支出等资金变动的帐务账单；

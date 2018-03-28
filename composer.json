@@ -1,5 +1,5 @@
 {
-    "name": "hongxuan/smart-pay",
+    "name": "hongxuan/smartpay",
     "description": "an integrated third-party payment tools package",
     "type": "library",
     "require": {
@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Hongxuan\\Smart\\": "src"
+            "Hongxuan\\Smartpay\\": "src/"
         },
         "classmap": [
             "tests"
