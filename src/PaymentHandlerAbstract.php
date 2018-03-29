@@ -9,18 +9,15 @@
 namespace Hongxuan\Smartpay;
 
 
-abstract class PaymentHandlerAbstract
+use Exception;
+
+abstract class PaymentHandlerAbstract implements PaymentInterface
 {
 
     /**
      * @var array 配置信息
      */
     protected $config;
-
-    /**
-     * @var array 传入的参数
-     */
-    protected $params;
 
     public function __construct(array $config = [])
     {
@@ -34,38 +31,13 @@ abstract class PaymentHandlerAbstract
      */
     abstract protected function getConfig($config);
 
-    /**
-     * 手机、电脑网站支付
-     * @return mixed
-     */
-    abstract function pay();
-
-    /**
-     * 订单查询
-     *
-     * @return mixed
-     */
-    abstract function tradeQuery();
-
-    /**
-     * 订单退款
-     *
-     * @return mixed
-     */
-    abstract function refund();
-
-    /**
-     * 订单退款查询
-     *
-     * @return mixed
-     */
-    abstract function refundQuery();
-
-    /**
-     * 账单下载
-     *
-     * @return mixed
-     */
-    abstract function download();
-
+    public function __call($name, $arguments)
+    {
+        $prefix = substr($name, 0, 3);
+        if ($prefix == 'set') {
+            array_set($this->config, snake_case(substr($name, 3)), array_get($arguments, '0', ''));
+            return $this;
+        }
+        throw new Exception("Call to undefined method {$name}()");
+    }
 }

@@ -11,6 +11,16 @@ namespace Hongxuan\Smartpay\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Class Payment
+ * @method static driver($driver = null)
+ * @method static pay()
+ * @method static tradeQuery()
+ * @method static refund()
+ * @method static refundQuery()
+ * @method static download()
+ * @package Hongxuan\Smartpay\Facades
+ */
 class Payment extends Facade
 {
 
