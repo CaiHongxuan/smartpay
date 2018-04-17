@@ -1,6 +1,18 @@
 # smartpay
 用于Laravel的第三方支付工具包，使用IOC容器技术，支持composer加载。整合支付宝、微信等支付方式
 
+# 安装
+
+安装本扩展包
+```
+composer require hongxuan/smartpay
+```
+
+安装配置文件`payment.php`到config目录下
+```
+php artisan vendor:publish
+```
+
 # 目前实现的功能
 1. 支付宝网页扫码支付
 2. 支付宝移动端支付
