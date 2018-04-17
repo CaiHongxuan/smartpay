@@ -9,8 +9,6 @@
 namespace Hongxuan\Smartpay;
 
 
-use Exception;
-
 abstract class PaymentHandlerAbstract implements PaymentInterface
 {
 
@@ -38,6 +36,6 @@ abstract class PaymentHandlerAbstract implements PaymentInterface
             array_set($this->config, snake_case(substr($name, 3)), array_get($arguments, '0', ''));
             return $this;
         }
-        throw new Exception("Call to undefined method {$name}()");
+        throw new PaymentException("Call to undefined method {$name}()");
     }
 }

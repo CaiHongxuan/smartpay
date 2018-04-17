@@ -21,6 +21,16 @@ class PaymentServiceProvider extends ServiceProvider
     protected $defer = true; // 延迟加载服务
 
     /**
+     * Bootstrap any application services.
+     */
+    public function boot()
+    {
+        $this->publishes([
+            $this->configPath() => config_path('payment.php'),
+        ], 'config');
+    }
+
+    /**
      * Register the pay service provider.
      */
     public function register()

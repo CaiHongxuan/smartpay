@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Facade;
  * @method static refund()
  * @method static refundQuery()
  * @method static download()
+ * @method static close()
+ * @method static setPayType(string $pay_type)
+ * @method static setOrder($order = [])
+ * @method static setNotifyUrl(string $url)
+ * @method static setReturnUrl(string $url)
  * @package Hongxuan\Smartpay\Facades
  */
 class Payment extends Facade
