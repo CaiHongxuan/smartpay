@@ -3,8 +3,8 @@
 
 # 要求
 
-1. php >= 5.4
-2. laravel >= 5.0 （illuminate/support >= 5.3.0， guzzlehttp/guzzle >= 6.0）
+1. php >= 5.6
+2. laravel >= 5.2 （illuminate/support >= 5.2.0， guzzlehttp/guzzle >= 6.0）
 
 # 安装
 
